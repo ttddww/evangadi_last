@@ -5,6 +5,8 @@ import classes from "./home.module.css";
 import { AppState } from "../../App";
 function Home() {
   const { user } = useContext(AppState);
+  console.log(user);
+  
   return (
     <section className={classes.container}>
       <div>

@@ -6,6 +6,8 @@ import { AppState } from "../../App";
 
 function Header() {
   const { user, setUser } = useContext(AppState); // 👈 useContext to access user state
+  console.log(user);
+  
   const navigate = useNavigate();
 
   // Logout function

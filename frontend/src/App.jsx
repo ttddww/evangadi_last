@@ -15,7 +15,7 @@ export const AppState = createContext();
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
 
   useEffect(() => {
     const checkUser = async () => {
@@ -24,9 +24,10 @@ function App() {
 
       try {
         const res = await axios.get("http://localhost:5600/api/users/check", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer `+ token },
         });
         console.log(res.data);
+        setUser(res.data);
       } catch (err) {
         console.error(err);
       }
