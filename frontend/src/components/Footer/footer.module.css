@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  background-color: #3b455a; /* dark navy */
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 20px;
+}
+
+/* First div (logo + social icons) */
+.footer {
+  display: flex;
+  flex-direction: column; /* logo and icons side by side */
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.footer img {
+  width: 120px;
+  height: auto;
+}
+
+.footer div {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #facc15; /* yellow hover */
+}
+
+/* All other sections (column direction) */
+.container > div:not(.footer) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #f9fafb;
+}
+
+.container a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.container a:hover {
+  color: #facc15;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer {
+    flex-direction: column; /* stack logo and socials on mobile */
+  }
+}
+

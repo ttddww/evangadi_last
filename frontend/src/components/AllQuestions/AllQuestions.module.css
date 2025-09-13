@@ -1,0 +1,105 @@
+/* AllQuestions.module.css */
+
+/* Container for each question link */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+
+  padding: 14px 18px;
+  margin-bottom: 12px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  text-decoration: none;
+  color: inherit;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;   /* blue-500 */
+  box-shadow: 0 6px 8px rgba(59,130,246,0.2);
+}
+
+/* Left section with avatar + username */
+.container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.container > div span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+}
+
+/* Question title */
+.container h3 {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Right arrow icon */
+.container svg:last-child {
+  flex-shrink: 0;
+  color: #9ca3af; /* gray-400 */
+  transition: color 120ms ease;
+}
+
+.container:hover svg:last-child {
+  color: #2563eb; /* blue-600 */
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+
+  .container h3 {
+    white-space: normal;
+  }
+
+  .container svg:last-child {
+    align-self: flex-end;
+  }
+}
+
+/* Dark mode (if your app supports it with body.dark) */
+:global(.dark) .container {
+  background: #0f172a;   /* slate-900 */
+  border-color: #1e293b;
+  color: #e5e7eb;
+  box-shadow: none;
+}
+
+:global(.dark) .container h3 {
+  color: #f3f4f6; /* gray-100 */
+}
+
+:global(.dark) .container:hover {
+  border-color: #3b82f6;
+}
+
+:global(.dark) .container svg:last-child {
+  color: #9ca3af;
+}
