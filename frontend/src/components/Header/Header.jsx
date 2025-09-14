@@ -14,7 +14,7 @@ function Header() {
   const handleLogout = () => {
     localStorage.removeItem("token"); // remove token
     setUser(null); // reset user in context
-    navigate("/auth"); // redirect to login page
+    navigate("/login"); // redirect to login page
   };
 
   return (
