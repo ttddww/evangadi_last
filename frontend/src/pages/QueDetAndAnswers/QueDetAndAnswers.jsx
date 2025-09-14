@@ -4,6 +4,7 @@ import classes from "./QueDetAndAnswers.module.css";
 import axios from "axios";
 import AllAnswers from "../../components/AllAnswers/AllAnswers";
 import { AppState } from "./../../App";
+import ForwardIcon from "@mui/icons-material/Forward";
 
 
 function QueDetAndAnswers() {
@@ -70,7 +71,7 @@ function QueDetAndAnswers() {
     <div className={classes.container}>
       <div className={classes.question}>
         <h2>Question</h2>
-        <p className={classes.main}>{question?.title}</p>
+        <p className={classes.main}><ForwardIcon color="primary" fontSize="large" />{question?.title}</p>
         <p>{question?.description}</p>
       </div>
 
