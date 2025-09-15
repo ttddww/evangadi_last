@@ -21,11 +21,12 @@
   color: #f97316; /* orange accent */
 }
 
-.content p {
+.content p:not(:first-child) {
   line-height: 1.6;
   color: #444;
   font-size: 12px;
 }
+
 
 .btn {
   margin-top: 1.5rem;
