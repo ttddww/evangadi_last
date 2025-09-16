@@ -22,7 +22,6 @@ function Home({title}) {
           onChange={(e) => console.log(e.target.value)}
         />
       </div>
-      <h2>Questions</h2>
       <AllQuestions />
     </section>
   );
