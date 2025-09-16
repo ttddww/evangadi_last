@@ -1,3 +1,9 @@
+.all{
+    height: 350px; /* Set a fixed height */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrolling if any */
+  margin-top: 20px;
+}
 .container {
   width: 800px;
   display: flex;

@@ -33,7 +33,7 @@ function AllQuestions() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className={classes.all}>
       {questions.length === 0 ? (
         <p>No questions available.</p>
       ) : (

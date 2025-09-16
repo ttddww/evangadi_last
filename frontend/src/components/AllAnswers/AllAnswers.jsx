@@ -30,7 +30,7 @@ function AllAnswers() {
   if (loading) return <p>Loading questions...</p>;
   if (error) return <p>{error}</p>;
   return (
-    <div>
+    <div className={classes.all}>
       {answers.length === 0 ? (
         <p>No questions available.</p>
       ) : (
