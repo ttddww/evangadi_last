@@ -84,7 +84,7 @@ function QueDetAndAnswers() {
       </div>
       <div className={classes.ask}>
         <h2>Answer The Top Question</h2>
-        <Link to="/ask">Go to Ask Question page</Link>
+        <Link to="/">Go to Questions(Home) page</Link>
       </div>
       {/* Answer Form */}
       <div className={classes.answer_form}>
