@@ -1,18 +1,11 @@
 const mysql2 = require("mysql2");
 
 const dbConnection = mysql2.createPool({
-  user: process.env.USER,
-  database: process.env.DATABASE,
-  host: "localhost",
-  password: process.env.PASSWORD,
+  host: process.env.DB_HOST, // e.g. Render DB hostname
+  user: process.env.DB_USER, // your DB username
+  password: process.env.DB_PASS, // your DB password
+  database: process.env.DB_NAME, // your DB name
   connectionLimit: 10,
 });
-// dbConnection.execute("select 'test' ", (err, result) => {
-//   if (err) {
-//     console.log(err.message);
-//   } else {
-//     console.log(result);
-//   }
-// });
 
 module.exports = dbConnection.promise();
