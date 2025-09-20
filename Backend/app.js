@@ -42,11 +42,13 @@ app.get("/testing", (req, res) => {
 async function start() {
   try {
     await dbConnection.execute("select 'test'");
-    app.listen(port);
-    console.log("database connection established");
-    console.log(`listening on ${port}`);
+    app.listen(port, "0.0.0.0", () => {
+      console.log("✅ Database connection established");
+      console.log(`🚀 Server listening on port ${port}`);
+    });
   } catch (error) {
-    console.log(error.message);
+    console.error("❌ Failed to start:", error.message);
   }
 }
+
 start();
