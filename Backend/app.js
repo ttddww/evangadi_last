@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors =  require('cors');
 
-const port = process.env.PORT || 5600;  // ✅ use Render's PORT
+const PORT = process.env.PORT || 3000;  // ✅ use Render's PORT
 
 const app = express();
 app.use(cors());
@@ -42,9 +42,9 @@ app.get("/testing", (req, res) => {
 async function start() {
   try {
     await dbConnection.execute("select 'test'");
-    app.listen(port, "0.0.0.0", () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log("✅ Database connection established");
-      console.log(`🚀 Server listening on port ${port}`);
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error("❌ Failed to start:", error.message);
