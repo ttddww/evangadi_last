@@ -5,6 +5,7 @@ import axios from "axios";
 import AllAnswers from "../../components/AllAnswers/AllAnswers";
 import { AppState } from "./../../App";
 import ForwardIcon from "@mui/icons-material/Forward";
+import axiosBase from "../../assets/axiosConfig";
 
 
 function QueDetAndAnswers() {
@@ -42,8 +43,8 @@ function QueDetAndAnswers() {
  const handleSubmit = async (e) => {
    e.preventDefault();
    try {
-    await axios.post(
-      "http://localhost:5600/api/answer/create-answer",
+    await axiosBase.post(
+      "/answer/create-answer",
       {
         userId: user.userId,
         questionId: qId,
@@ -57,9 +58,7 @@ function QueDetAndAnswers() {
      alert("Answer posted successfully");
      setAnswer("");
      // Refresh answers list
-     const res = await axios.get(
-       `http://localhost:5600/api/answer/answers/${qId}`
-     );
+     const res = await axiosBase.get(`/answer/answers/${qId}`);
      setAnswers(res.data);
    } catch (err) {
      console.error("Failed to submit answer:", err);

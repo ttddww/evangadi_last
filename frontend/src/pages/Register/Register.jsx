@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./register.module.css";
 import About from "../../components/About/About";
+import axiosBase from "../../assets/axiosConfig";
 
 function Register() {
   const navigate = useNavigate();
@@ -26,10 +27,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:5600/api/users/register",
-        formData
-      );
+      const res = await axiosBase.post("/users/register", formData);
       console.log(res.data);
       navigate("/login"); // redirect to login page
     } catch (err) {

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import classes from "./AllQuestions.module.css";
+import axiosBase from "../../assets/axiosConfig";
 
 function AllQuestions() {
   const [questions, setQuestions] = useState([]);
@@ -13,9 +14,7 @@ function AllQuestions() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5600/api/question/all-questions"
-        );
+        const res = await axiosBase.get("/question/all-questions");
         // Adjust depending on backend response: res.data OR res.data.questions
         setQuestions(res.data.questions || res.data);
       } catch (err) {

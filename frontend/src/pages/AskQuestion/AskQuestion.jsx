@@ -4,6 +4,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode"; // ✅ correct
 import classes from "./AskQuestion.module.css";
 import { AppState } from "../../App";
+import axiosBase from "../../assets/axiosConfig";
 
 function AskQuestion() {
   const { qId } = useParams();
@@ -20,8 +21,8 @@ function AskQuestion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:5600/api/question/askQuestion",
+      const res = await axiosBase.post(
+        "/question/askQuestion",
         {
           userId: user.userId,
           title,

@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import classes from "./AllAnswers.module.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import axiosBase from "../../assets/axiosConfig";
 
 function AllAnswers() {
   const [answers, setAnswers] = useState([]);
@@ -11,9 +11,7 @@ function AllAnswers() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5600/api/answer/all-Answers"
-        );
+        const res = await axiosBase.get("/answer/all-Answers");
         // Adjust depending on backend response: res.data OR res.data.questions
         setAnswers(res.data.answers || res.data);
       } catch (err) {

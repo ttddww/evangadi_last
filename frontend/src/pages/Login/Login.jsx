@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./login.module.css";
 import About from "../../components/About/About";
+import axiosBase from "../../assets/axiosConfig";
 
 function Login() {
   const navigate = useNavigate();
@@ -32,10 +33,7 @@ function Login() {
     }
 
     try {
-      const { data } = await axios.post(
-        "http://localhost:5600/api/users/Login",
-        formData
-      );
+      const { data } = await axiosBase.post("/users/Login", formData);
       alert("Login successful");
       localStorage.setItem("token", data.token);
       navigate("/");
@@ -43,26 +41,7 @@ function Login() {
       alert(error?.response?.data?.msg);
       console.log(error.message);
     }
-  };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post(
-  //       "http://localhost:5600/api/users/login",
-  //       formData
-  //     );
-  //     console.log(res.data);
-  //     console.log(res.data.token);
-
-  //     // Save token (if backend returns JWT)
-  //     localStorage.setItem("token", res.data.token);
-
-  //     navigate("/"); // Redirect to homepage or dashboard
-  //   } catch (err) {
-  //     setError(err.response?.data?.message || "Login failed. Try again.");
-  //   }
-  // };
+  }; 
 
   return (
     <div className={classes.container}>
