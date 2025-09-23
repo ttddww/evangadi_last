@@ -7,6 +7,7 @@ const dbConnection = mysql2.createPool({
   host: process.env.DB_HOST,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT || 3306,
+  ssl: { rejectUnauthorized: true }, // Aiven requires SSL
   connectionLimit: 10,
 });
 
