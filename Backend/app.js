@@ -5,7 +5,12 @@ const cors =  require('cors');
 const PORT = process.env.PORT || 3000;  // ✅ use Render's PORT
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://startling-pegasus-903308.netlify.app", // your Netlify URL
+    credentials: true,
+  })
+);
 
 //middleware to parse json data from request body
 app.use(express.json());
