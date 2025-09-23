@@ -16,6 +16,8 @@ function AllQuestions() {
       try {
         const res = await axiosBase.get("/question/all-questions");
         // Adjust depending on backend response: res.data OR res.data.questions
+        console.log(res.data);
+        
         setQuestions(res.data.questions || res.data);
       } catch (err) {
         setError("Failed to load questions.");

@@ -1,41 +1,53 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
+const cors =  require('cors');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;  // ✅ use Render's PORT
+
 const app = express();
-
 app.use(cors());
+
+//middleware to parse json data from request body
 app.use(express.json());
 
-// dbConnection
+
+//dbConnection
 const dbConnection = require("./db/dbConfig");
 
-// Routes
+//user routes middleware file
 const usersRoutes = require("./routes/usersRoutes");
+
+//question routes middleware file
 const questionsRoutes = require("./routes/questionsRoutes");
+
+//answer routes middleware file
 const answersRoutes = require("./routes/answersRoutes");
 
+
+//user routes middleware
 app.use("/api/users", usersRoutes);
+
+//questions routes middleware 
 app.use("/api/question", questionsRoutes);
+
+//answers routes middleware 
 app.use("/api/answer", answersRoutes);
 
 // Test endpoint
 app.get("/testing", (req, res) => {
-  res.json({ message: "Hello from Evangadi Backend!" });
+  res.json({ 
+    message: "Hello from Evangadi Backend!",
+  });
 });
-
-// Start server
 async function start() {
   try {
     await dbConnection.execute("select 'test'");
-    console.log("✅ Database connection established");
-
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+      console.log("✅ Database connection established");
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
-    console.error("❌ Failed to start:", error); // log full error
+    console.error("❌ Failed to start:", error.message);
   }
 }
 

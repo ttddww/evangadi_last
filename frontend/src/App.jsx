@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
 
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
@@ -9,6 +8,7 @@ import QueDetAndAnswers from "./pages/QueDetAndAnswers/QueDetAndAnswers";
 import AskQuestion from "./pages/AskQuestion/AskQuestion";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import axiosBase from "./assets/axiosConfig";
 
 export const AppState = createContext();
 
@@ -23,7 +23,7 @@ function App() {
       if (!token) return; // 👈 don't call backend if no token
 
       try {
-        const res = await axios.get("http://localhost:5600/api/users/check", {
+        const res = await axiosBase.get("/users/check", {
           headers: { Authorization: `Bearer `+ token },
         });
         console.log(res.data);
