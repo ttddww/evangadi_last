@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 //dbConnection
-const dbConnection = require("./db/dbConfig");
+const db = require("./db/dbConfig");
 
 //user routes middleware file
 const usersRoutes = require("./routes/usersRoutes");
@@ -41,7 +41,7 @@ app.get("/testing", (req, res) => {
 });
 async function start() {
   try {
-    await dbConnection.execute("select 'test'");
+    await db.execute("select 'test'");
     app.listen(PORT, "0.0.0.0", () => {
       console.log("✅ Database connection established");
       console.log(`Server running on port ${PORT}`);
